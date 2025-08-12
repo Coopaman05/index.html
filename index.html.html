@@ -1,801 +1,289 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-
-
-
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>GearHead Auto — Quality Auto Repair</title>
+  <meta name="description" content="GearHead Auto — full-service auto repair, diagnostics, brakes, oil changes, and tune-ups. Fast, honest, locally-owned." />
+  <meta name="theme-color" content="#0b4b6f" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/jpg" href="e:\Bruno ($BNO)\brunotopheader - Copy.png">
-  <link href="e:\Bruno ($BNO)\bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="e:\Bruno ($BNO)\aos.css">
-  <link rel="stylesheet" href="e:\Bruno ($BNO)\bootstrap-icons.css">
-  <link rel="stylesheet" href="e:\Bruno ($BNO)\font-awesome.min.css">
-  <link href="e:\Bruno ($BNO)\styles.css" rel="stylesheet">
+  <!-- JSON-LD LocalBusiness (replace placeholders) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoRepair",
+    "name": "GearHead Auto",
+    "image": "https://example.com/garage-front.jpg",
+    "@id": "https://gearheadauto.example.com",
+    "url": "https://gearheadauto.example.com",
+    "telephone": "+1-555-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Main St",
+      "addressLocality": "Anytown",
+      "addressRegion": "TX",
+      "postalCode": "00000",
+      "addressCountry": "US"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 30.0, "longitude": -97.0 },
+    "openingHoursSpecification": [
+      {"@type": "OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"17:30"},
+      {"@type": "OpeningHoursSpecification","dayOfWeek":["Saturday"],"opens":"08:00","closes":"12:00"}
+    ],
+    "priceRange": "$$"
+  }
+  </script>
 
-  <title>BrunoCoin</title>
+  <style>
+    /* Simple responsive CSS */
+    :root{
+      --brand:#0b4b6f; --accent:#ef6c00; --muted:#6b7280; --card:#ffffff;
+      --maxw:1100px;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:#f6f8fa;color:#111;line-height:1.45}
+    .container{max-width:var(--maxw);margin:0 auto;padding:0 1rem}
+    header{background:linear-gradient(90deg,var(--brand),#0a3955);color:white}
+    .topbar{display:flex;align-items:center;justify-content:space-between;padding:.6rem 0}
+    .logo{display:flex;gap:.6rem;align-items:center}
+    .logo img{height:44px;width:44px;object-fit:cover;border-radius:6px}
+    nav{display:none}
+    .actions{display:flex;gap:.5rem;align-items:center}
+    .btn{background:var(--accent);border:none;color:white;padding:.6rem .9rem;border-radius:6px;cursor:pointer}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,.2)}
+    .hero{display:grid;grid-template-columns:1fr;gap:1rem;padding:2.2rem 0}
+    .hero .copy h1{margin:.2rem 0;font-size:1.9rem}
+    .hero .copy p{color:var(--muted);margin:0 0 1rem}
+    .card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 20px rgba(11,75,111,.06)}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin:1rem 0}
+    .service{padding:1rem;border-radius:8px;border:1px solid #eee}
+    .grid-2{display:grid;grid-template-columns:1fr 340px;gap:1rem}
+    .testimonials{display:flex;flex-direction:column;gap:1rem}
+    footer{background:#081b28;color:#cfe8ff;padding:1.2rem 0;margin-top:2rem}
+    .map{height:240px;background:#e9eef3;border-radius:8px}
+    /* responsive nav */
+    .hamburger{display:inline-block;padding:.4rem;border-radius:6px;background:rgba(255,255,255,.08)}
+    @media(min-width:880px){
+      nav{display:block}
+      .hero{grid-template-columns:1fr 420px}
+      .hamburger{display:none}
+      .topbar{padding:1rem 0}
+    }
+    /* small helpers */
+    .muted{color:var(--muted)}
+    .kicker{font-size:.82rem;color:var(--accent);font-weight:600;text-transform:uppercase}
+    .hours dt{font-weight:600}
+    .contact-form input,.contact-form textarea{width:100%;padding:.6rem;border:1px solid #e1e6eb;border-radius:6px;margin:.4rem 0}
+    .cta-big{display:inline-block;background:var(--accent);color:white;padding:.9rem 1.2rem;border-radius:8px;font-weight:700}
+  </style>
 </head>
+<body>
+  <header>
+    <div class="container topbar" role="banner">
+      <div class="logo" aria-label="GearHead Auto logo">
+        <img src="https://via.placeholder.com/120x120.png?text=GH" alt="GearHead Auto logo">
+        <div>
+          <div style="font-weight:700">GearHead Auto</div>
+          <div style="font-size:.9rem;color:rgba(255,255,255,.85)">Honest repairs • Fast turnarounds</div>
+        </div>
+      </div>
 
-<body data-aos-easing="ease" data-aos-duration="400" data-aos-delay="0">
-  <header class="fixed-top padding-4 w-100">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <div class="d-flex align-items-center justify-content-lg-between flex-column flex-lg-row">
-            <a href="#" class="d-flex align-items-center mb-2 mb-lg-0 me-lg-3 text-dark text-decoration-none">
-              <img src="e:\Bruno ($BNO)\brunotopheader - Copy.png" alt="Baby XDGF" width="400px">
-            </a>
-            <ul class="nav d-flex justify-content-center">
-              <!-- <li class="me-2"><a href="#" class="btn btn-contact rounded-pill px-3 py-2" target="_blank">Da<span
-                    i18n="all.wallet">pp</span></a>
-              </li>
-              <li class="me-md-2"><a href="#" class="btn btn-launch px-3 py-2" target="_blank"><span
-                    i18n="all.launch">KY</span>C</a></li>
-              <li class="me-md-2"><a href="#" class="btn btn-launch px-3 py-2" target="_blank"><span
-                    i18n="all.launch">AU</span>DIT</a></li>
-              <li class="me-md-2"><a href="#" class="btn btn-launch px-3 py-2" target="_blank"><span
-                    i18n="all.launch">SA</span>FU</a></li> -->
-              <!-- <li class="me-md-2 vf"><a href="./LTC2.0_WhitePaper.pdf" class="btn btn-launch px-3 py-2"
-                  style="z-index:999;" target="_blank"><span i18n="all.launch">WHITE PAPER</span></a></li> -->
-              <!-- <li class="me-md-2"><a href="#" class="btn btn-launch px-3 py-2" target="_blank"><span
-                    i18n="all.launch">Lo</span>ttery</a></li>
-              <li class="me-md-2"><a href="#" class="btn btn-launch px-3 py-2" target="_blank"><span
-                    i18n="all.launch">Dex</span>tools</a></li>
-              <li class="me-md-2"><a href="#" class="btn btn-launch px-3 py-2" target="_blank"><span
-                    i18n="all.launch">Tele</span>gram</a></li> -->
+      <nav aria-label="Main navigation">
+        <a href="#services" style="color:white;margin-right:1rem">Services</a>
+        <a href="#about" style="color:white;margin-right:1rem">About</a>
+        <a href="#contact" style="color:white;margin-right:1rem">Contact</a>
+      </nav>
 
-            </ul>
-          </div>
+      <div class="actions">
+        <a class="btn" href="tel:+15551234567" aria-label="Call us">Call: (555) 123-4567</a>
+        <button class="hamburger" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+      </div>
+    </div>
+
+    <div class="container hero" role="region" aria-label="Hero section">
+      <div class="copy card">
+        <div class="kicker">Full-Service Auto Repair</div>
+        <h1>Fast, dependable repairs — get back on the road today</h1>
+        <p class="muted">From diagnostics and brakes to engine repairs and pre-trip inspections. Certified technicians, transparent pricing, and a free vehicle health check with every service.</p>
+
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <a class="cta-big" href="#booking">Book Online</a>
+          <a class="btn secondary" href="#services">Our Services</a>
+        </div>
+
+        <ul style="margin-top:1rem;color:var(--muted);font-size:.95rem">
+          <li><strong>Same-day diagnostics</strong> &amp; transparent estimates</li>
+          <li><strong>ASE-certified techs</strong> and warranty on repairs</li>
+        </ul>
+      </div>
+
+      <div class="card" aria-hidden="false">
+        <strong>Quick info</strong>
+        <p class="muted" style="margin:0.4rem 0">Open Mon–Fri 8:00–17:30 · Sat 8:00–12:00</p>
+        <p style="margin:.4rem 0"><a href="https://maps.google.com" target="_blank" rel="noopener">123 Main St, Anytown</a></p>
+        <p style="margin:.4rem 0"><a href="#contact">Request a quote</a></p>
+        <div style="margin-top:1rem">
+          <a class="btn" href="#booking">Book an Appointment</a>
         </div>
       </div>
     </div>
   </header>
-  <style>
-    @media (max-width: 767px) {
-      .headertext h4 {
-        font-size: 12px !important;
-      }
 
-      .vf {
-        position: absolute;
-        left: -9999px;
-      }
-    }
-  </style>
-
-  <div class="blurbg" id="top">
-    <section class="headertext">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-8 col-lg-6 text-center text-md-start" style="z-index:999;">
-            <div class="d-grid gap-3 mb-4">
-              <h2 class="my-0" style="font-weight:700;font-size: 3rem;">BrunoCoin </h2>
-              <!-- <div class="d-grid gap-2">
-                <h1 class="my-0" i18n="header.title1">Total Supply</h1>
-                <h3 class="my-0"><span i18n="header.title2"></span>1,000,000</h3>
-              </div> -->
-              
-              <h4 class="my-0" i18n="header.title3">Symbol: $Bruno</h4>
-              <h4 class="my-0" i18n="header.title3">Total supply: 1,000,000,000</h4>
-              <h4 class="my-0" i18n="header.title3">Address: 0x218b2c8c189f17033c6fa1cf8f9afaeda156feac <br>
-
-                <br><br>
-
-
-               
-                <!-- <h4 class="my-0" i18n="header.title3">A Decentralized Marketplace for Rewards</h4> -->
-            </div>
-            <div class="d-flex flex-row justify-content-center justify-content-md-start">
-              <a href=""
-                class="btn btn-launch me-2" target="_blank"><span i18n="all.launch">BUY $BRUNO</span></a>
-              <a href="https://www.dextools.io/app/en/bitrock/pair-explorer/0x20baecd265ad62b60d9ea1f1f5d4208214a53ca1" class="btn btn-launch"
-                target="_blank" i18n="home.buyBNB">CHECK $BRUNO</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center justify-content-md-start" style="margin-top: 30px;">
-              <a href="https://t.me/+cBkaKvr_u0k1OTUx"
-                class="btn btn-launch me-2" target="_blank"><span i18n="all.launch">Telegram</span></a>
-              <a href="https://twitter.com/BrunoTheDogMeme" class="btn btn-launch"
-                target="_blank" i18n="home.buyBNB">Twitter</a>
-            </div>
-            <div style="display: flex;justify-content: space-between;margin-top: 30px;">
-              <a href="https://coinmarketcap.com/currencies/baby-x-2-0/"><img src="img/CMC2.0.png" alt="" width="70px"></a>
-              <a href="https://coinmarketcap.com/currencies/baby-x/"><img src="img/CMC.png" alt="" width="70px"></a>
-              <a href="https://ave.ai/token/0xAbd601423a2cD5723CB546AcC5C40fb01C3422Cf-eth"><img src="img/ave.png"
-                  width="70px" alt=""></a>
-              <a href="https://dexscreener.com/ethereum/0xa1b88a2b6cc9b25e6f7ef547b8837a0226b89c45"><img
-                  src="img/dexscr.png" alt="" width="70px"></a>
-              <a href="https://www.dextools.io/app/en/ether/pair-explorer/0xa1b88a2b6cc9b25e6f7ef547b8837a0226b89c45"><img
-                  src="img/dextools.png" alt="" width="70px"></a>
-              <a href="https://www.dexview.com/eth/0xAbd601423a2cD5723CB546AcC5C40fb01C3422Cf"><img
-                  src="img/dexview.png" alt="" width="70px"></a>
-              <a
-                href="https://app.uniswap.org/#/swap?&inputCurrency=0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2&outputCurrency=0xAbd601423a2cD5723CB546AcC5C40fb01C3422Cf&use=V2"><img
-                  src="img/uni.png" alt="" width="70px"></a>
-
-
-            </div>
-            <!-- <div class="d-flex flex-row justify-content-center justify-content-md-start" style="margin: 20px 0;">
-              <a href="https://t.me/LTC20BOT_BOT" class="btn btn-launch" target="_blank" i18n="home.buyBNB">ADD Baby X
-                BOT TO TELEGRAM</a>
-            </div>
-            <div class="d-flex flex-row justify-content-center justify-content-md-start" style="margin: 20px 0;">
-              <a href="https://t.me/LTC20PIC_BOT" class="btn btn-launch" target="_blank" i18n="home.buyBNB">ADD Baby X
-                PIC BOT TO TELEGRAM</a>
-            </div> -->
-          </div>
-        </div>
+  <main class="container" id="main">
+    <!-- Services -->
+    <section id="services" style="margin-top:1.2rem">
+      <h2>Our Services</h2>
+      <p class="muted">Comprehensive services for cars, trucks, and SUVs.</p>
+      <div class="services" role="list">
+        <article class="service" role="listitem">
+          <h3>Diagnostics & Check Engine</h3>
+          <p class="muted">Computer diagnostics, code repair, and test drives.</p>
+        </article>
+        <article class="service" role="listitem">
+          <h3>Brakes & Suspension</h3>
+          <p class="muted">Pads, rotors, shocks, alignments.</p>
+        </article>
+        <article class="service" role="listitem">
+          <h3>Oil & Fluid Services</h3>
+          <p class="muted">Oil changes, transmission fluid, coolant flushes.</p>
+        </article>
+        <article class="service" role="listitem">
+          <h3>Engine & Transmission</h3>
+          <p class="muted">Repairs, rebuilds, and maintenance.</p>
+        </article>
       </div>
-      <div class="position-relative cow">
-        <div class="row g-0">
-          <div class="col-12 oimg">
-            <img src="e:\Bruno ($BNO)\bruno no background.png" alt="Image" style="margin-top:20px;">
+    </section>
+
+    <!-- Two column area: About + Contact -->
+    <section style="margin-top:1rem" id="about">
+      <div class="grid-2">
+        <div class="card">
+          <h2>About GearHead Auto</h2>
+          <p class="muted">Locally owned since 2005. We prioritize honest diagnostics, fair pricing, and long-lasting repairs. Our team includes ASE-certified technicians and specialists in late-model diagnostics.</p>
+          <h4>Why choose us</h4>
+          <ul class="muted">
+            <li>Warranty on repairs</li>
+            <li>Courtesy vehicle shuttle</li>
+            <li>OEM & aftermarket parts</li>
+          </ul>
+        </div>
+
+        <aside class="card" aria-labelledby="contact-heading">
+          <h3 id="contact-heading">Contact & Hours</h3>
+          <address style="font-style:normal" class="muted">
+            <strong>GearHead Auto</strong><br>
+            123 Main St, Anytown, TX 00000<br>
+            <a href="tel:+15551234567"> (555) 123-4567</a>
+          </address>
+
+          <dl class="hours muted">
+            <dt>Mon–Fri</dt><dd>8:00 – 17:30</dd>
+            <dt>Saturday</dt><dd>8:00 – 12:00</dd>
+            <dt>Sunday</dt><dd>Closed</dd>
+          </dl>
+
+          <div style="margin-top:.6rem">
+            <a class="btn" href="#booking">Book Appointment</a>
           </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Pricing / Quick estimate -->
+    <section style="margin-top:1rem">
+      <h2>Typical Prices</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem">
+        <div class="card"><strong>Oil Change</strong><p class="muted">$39.99 — Synthetic extra</p></div>
+        <div class="card"><strong>Brake Pads</strong><p class="muted">From $149 — per axle</p></div>
+        <div class="card"><strong>Diagnostics</strong><p class="muted">$79 (applied to repair)</p></div>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section aria-label="Customer testimonials" style="margin-top:1rem">
+      <h2>What customers say</h2>
+      <div class="testimonials">
+        <blockquote class="card">
+          <strong>John D.</strong>
+          <p class="muted">“Quick, honest, and fair pricing. Fixed my brake issue the same day.”</p>
+        </blockquote>
+        <blockquote class="card">
+          <strong>Maria S.</strong>
+          <p class="muted">“The team walked me through the problem and the options — no surprise fees.”</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Contact & Map -->
+    <section id="contact" style="margin-top:1rem;margin-bottom:2rem">
+      <h2>Request a Quote / Contact</h2>
+      <div class="grid-2">
+        <form class="card contact-form" action="#" method="post" onsubmit="return validateContact(event)">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" required>
+
+          <label for="phone">Phone</label>
+          <input id="phone" name="phone" type="tel" required>
+
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email">
+
+          <label for="service">Service interested in</label>
+          <input id="service" name="service" type="text">
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4"></textarea>
+
+          <div style="display:flex;gap:.6rem;margin-top:.6rem">
+            <button class="btn" type="submit">Send Request</button>
+            <a class="btn secondary" href="tel:+15551234567">Call Now</a>
+          </div>
+        </form>
+
+        <div class="card">
+          <h3>Find us</h3>
+          <!-- Replace the src with your Google Maps embed link -->
+          <iframe class="map" loading="lazy"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..."></iframe>
+
+          <p class="muted" style="margin-top:.6rem">We offer shuttle service and loaner cars (by appointment).</p>
         </div>
       </div>
     </section>
 
-    
+  </main>
 
-    <section class="choose">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-lg-8 offset-lg-2 text-center bg-transparent aos-init" data-aos="fade-up"
-            data-aos-duration="500">
-            <div class="d-grid gap-3">
-              <div class="d-grid gap-2">
-                <h3 class="my-0"><span i18n="about.title1">About</span> Bruno</h3>
-                <h2 class="my-0 f-col">Bruno</h2>
-                <h4 class="my-0" i18n="about.title2">Introducing Bruno, a crypto companion on the Bitrock Blockchain on a mission to bring joy and laughter to the crypto community. Bruno the Dog Meme Coin is more than just a token – it's a celebration of furry fun and community spirit. Join the pack and invest in the whimsical world of Bruno. Let Bruno lead you on a journey filled with laughter, memes, and paws-itively delightful moments. Get ready to unleash the cuteness and be part of the Bruno revolution! 🐾🚀 #BrunoTheDog #BrunoCoin
-                  </h4>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+  <footer>
+    <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div>© <strong>GearHead Auto</strong> <span id="year"></span> · <span class="muted">ASE-Certified Technicians</span></div>
+      <div class="muted">Follow: <a href="#" style="color:inherit;text-decoration:underline">Facebook</a> · <a href="#" style="color:inherit;text-decoration:underline">Instagram</a></div>
+    </div>
+  </footer>
 
-      <div class="container about">
-        <div class="row">
-          <div class="col-12 col-lg-6 text-center text-lg-start bg-transparent aos-init" data-aos="fade-down"
-            data-aos-duration="1000" style="z-index:999;">
-            <div class="d-grid gap-3 mb-4">
-              <h3 class="my-0" i18n="farm.title1"></h3>
-              <h2 class="my-0 f-col" i18n="farm.title2">Our Mission
-              </h2>
-              <h4 class="my-0" i18n="farm.title3">We embark on a mission to explore and navigate the exciting world of cryptocurrency, blockchain, and decentralized technologies. Our goal is to integrate Bruno into the digital financial landscape, leveraging his boundless energy and curiosity to promote engagement and positive interactions within the crypto community.</h4>
-            </div>
-            <!-- <div class="d-flex flex-row justify-content-center justify-content-md-start">
-              <a href="#" class="btn btn-launch" target="_blank" i18n="farm.btncompound">Pools</a>
-            </div> -->
-          </div>
-        </div>
-      </div>
-      <div class="position-relative coin2">
-        <div class="row g-0">
-          <div class="col-12 qing">
-            <img src="e:\Bruno ($BNO)\image (8).png" alt="Image">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- <section class="staking">
-      <div class="container">
-        <div class="row mb-4">
-          <div class="col-12 col-lg-8 offset-lg-2 text-center bg-transparent aos-init" data-aos="fade-up"
-            data-aos-duration="500">
-            <div class="d-grid gap-2 mb-4">
-              <h3 class="my-0" i18n="stake.title1">Excellent team</h3>
-              <h2 class="my-0" i18n="stake.title2">Baby X TEAM</h2>
-            </div>
-  
-          </div>
-        </div>
-        <div class="row row-cols-1 row-cols-md-3 g-md-4">
-          <div class="col mb-4 mb-md-0">
-            <div class="card h-100 bg-transparent border-0 aos-init" data-aos="flip-up" data-aos-duration="1000">
-              <img src="./e:\Bruno ($BNO)\farm.png" class="card-img-top"
-                alt="Farm $CZ with Extra Reward">
-              <div class="card-body">
-                <h5 class="card-title" i18n="stake.title3">Williams</h5>
-              </div>
-              <div style="color:#;margin: 0 2.7rem;"> Responsible for the planning, organization and management of
-                team projects. Communicate with clients to develop project goals and timelines. Supervise the progress
-                of team members' work and address issues and risks in the project.</div>
-            </div>
-          </div>
-          <div class="col mb-4 mb-md-0">
-            <div class="card h-100 bg-transparent border-0 aos-init" data-aos="flip-down" data-aos-duration="1500">
-              <img src="./e:\Bruno ($BNO)\bonus.png" class="card-img-top" alt="Baby X Lottery">
-              <div class="card-body">
-                <h5 class="card-title" i18n="stake.title4">Davis</h5>
-              </div>
-              <div style="color:#fff;margin: 0 2.7rem;"> Responsible for the development and maintenance of the software
-                portion of the company's products. Write high-quality code based on requirements documentation and
-                design specifications. Work with team members on code reviews and problem solving.</div>
-            </div>
-          </div>
-          <div class="col mb-4 mb-md-0">
-            <div class="card h-100 bg-transparent border-0 aos-init" data-aos="flip-up" data-aos-duration="2000">
-              <img src="./e:\Bruno ($BNO)\community.png" class="card-img-top" alt="Community Bonus">
-              <div class="card-body">
-                <h5 class="card-title" i18n="stake.title5">Johnson</h5>
-              </div>
-              <div style="color:#fff;margin: 0 2.7rem;"> Responsible for developing and executing marketing strategies
-                to increase the visibility and sales of the company's products. Communicate with customers and partners,
-                organize marketing activities and exhibits. Analyze market data and provide reports on market trends and
-                competitors.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <section class="choose" id="wallet">
-      <div class="container about">
-        <div class="row">
-          <div class="col-12 col-lg-6 offset-lg-6 text-center text-lg-start bg-transparent aos-init"
-            data-aos="fade-down" data-aos-duration="1500">
-            <div class="d-grid gap-3 mb-4">
-              <h3 class="my-0"> <span i18n="all.wallet"></span></h3>
-              <h2 class="my-0 f-col" i18n="wallet.title1">Join The Community</h2>
-              <h4 class="my-0" i18n="wallet.title2">Connect with Like-minded Bruno enthusiast. Be the First to Know about Bruno's Adventures. Engage in Meaningful Conversations. Supportive Community Environment.</h4>
-              <h4 class="my-0" i18n="wallet.title2"></h4>
-            </div>
-            <ul class="text-start">
-              <li class="me-md-2"><a href="https://t.me/+cBkaKvr_u0k1OTUx" class="btn btn-launch px-3 py-2" 
-                        
-                target="_blank"
-                  style="z-index:999;"><span i18n="all.launch">Telegram</span></a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="position-relative coin1">
-        <div class="row g-0">
-          <div class="col-12 qimg">
-            <img src="e:\Bruno ($BNO)\image (9).png" alt="Image">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="choose" id="reward">
-      <div class="container about">
-        <div class="row g-0">
-          <div class="col-3 col-md-2 pb-0 col-lg-1 bg-transparent aos-init" data-aos="fade-down"
-            data-aos-duration="500">
-            <hr>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-6 pt-0 text-start bg-transparent aos-init" data-aos="fade-down"
-            data-aos-duration="1000">
-            <div class="d-grid gap-3 mb-4">
-              <h2 class="my-0 f-col" i18n="game.title1">How To Buy $Bruno</h2>
-              <h4 class="my-0" i18n="game.title2">
-                <p>Step 1: Copy Contact Address</p>
-                <p>Step 2: Visit RockSwap.io</p>
-                <p>Step 3: Paste & Import (CA) $Bruno</p>
-                <p>Step 4: Set Slippage to 5%</p>
-                <p>Step 5: Swap $Brock to $Bruno</p>
-                <br></br>
-              </h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="position-relative game">
-        <div class="row g-0">
-          <div class="col-12 col-md-11 text-center text-lg-end">
-            <img src="e:\Bruno ($BNO)\download.png" alt="Image">
-          </div>
-        </div>
-      </div>
-      <div class="container about">
-        <div class="row g-0">
-          <div class="col-3 col-md-2 pb-0 col-lg-1 bg-transparent aos-init" data-aos="fade-down"
-            data-aos-duration="1500">
-            <hr>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 col-lg-6 pt-0 text-start bg-transparent aos-init" data-aos="fade-down"
-            data-aos-duration="1000">
-            <div class="d-grid gap-3 mb-4">
-              <h2 class="my-0 f-col" i18n="reward.other">Tokenomics</h2>
-              <h4 class="my-0" i18n="reward.title1"><br> 80% Fair Launch & RockSwap</br>
-              <br>10% Marketing & Cex Listing</br>
-            <br> 5% Team Tokens (Locked 30 Days)</br>
-            <br> 5% (Future Staking pool)</br>
-              </h4>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="position-relative gift">
-        <div class="row g-0">
-          <div class="col-12 col-md-11 text-center text-lg-end">
-            <img src="e:\Bruno ($BNO)\image (10).png" alt="Image">
-          </div>
-        </div>
-        <p class="my-0"><span i18n="reward.title2"></span>  <span i18n="reward.title3"></span></p>
-      </div>
-    </section>
-
-    <section class="whitepaper">
-      <div class="container">
-        <div class="row">
-        <div class="row">
-
-            </div>
-            <!-- <div class="d-flex flex-row justify-content-center">
-              <a href="./CZ DAO+Whitepaper.pdf" class="btn btn-launch me-2" target="_blank"><span
-                  i18n="tool.title3">Whitepaper</span><span i18n="tool.title4">
-                </span></a>
-            </div> -->
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="whitepaper">
-      <div class="container">
-        <div class="row">
-          <div class="col-3 col-md-2 offset-4 offset-md-5 bg-transparent">
-            <hr>
-          </div>
-        </div>
-        <div class="row mb-4">
-          <div class="col-12 col-lg-8 offset-lg-2 text-center bg-transparent aos-init" data-aos="fade-down"
-            data-aos-duration="1500">
-            <h2 class="my-0 f-col" i18n="roadmap.title1">Bruno Vision RoadMap</h2>
-          </div>
-        </div>
-        <div class="row mb-4">
-          <div class="col-12 col-lg-8 offset-lg-2">
-            <div class="position-relative h-100 bg-transparent aos-init bg-0" data-aos="flip-up"
-              data-aos-duration="2000">
-              <div class="border-grad">
-                <div class="d-grid gap-3">
-                  <h4 class="my-0"><span i18n="roadmap1.title1">Coming Soon</span></h4>
-                  <ul>
-                    <li i18n="roadmap1.sub1">Coin Gecko</li>
-                    <li i18n="roadmap1.sub2">CoinMarketCap</li>
-                    <li i18n="roadmap1.sub3">Exchange Listing</li>
-                    <li i18n="roadmap1.sub4">NFTs</li>
-    </section>
-
-    <!-- <section class="promo mb-5">
-      <div class="container">
-        <div class="row g-0">
-          <div class="col-3 col-md-2 col-lg-1 bg-transparent aos-init" data-aos="fade-down" data-aos-duration="500">
-            <hr>
-          </div>
-        </div>
-        <div class="row mb-4">
-          <div class="col-12 pt-0 bg-transparent aos-init" data-aos="fade-up" data-aos-duration="500">
-            <div class="d-grid gap-2">
-              <h2 class="my-0" i18n="platform.title1">$DGF Strategy Partners and Platform</h2>
-              <h3 class="my-0" i18n="platform.title2">Our Strategic Partners and technical support are as follows</h3>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-up" data-aos-duration="2000">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\cmc.png" class="platform" alt="cmc">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub1">Coinmarketcap</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-down" data-aos-duration="2500">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\coingecko.png" class="platform" alt="coingecko">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub2">Coingecko</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-up"
-              data-aos-duration="3000">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\cake.png" class="platform" alt="cake">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub3">cake</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-down"
-              data-aos-duration="3500">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\trx.png" class="platform" alt="Tron">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub4">Tron</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-up"
-              data-aos-duration="4000">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\eth.png" class="platform" alt="Ethereum">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub5">Ethereum</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-up" data-aos-duration="4000">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\Nomics.png" class="platform" alt="Nomics">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub6">Nomics</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="promo mb-5">
-      <div class="container">
-        <div class="row g-0">
-          <div class="col-3 col-md-2 col-lg-1 bg-transparent aos-init" data-aos="fade-down" data-aos-duration="500">
-
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-up" data-aos-duration="2000">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\icon/crp.png" class="platform" alt="crypto.com">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub1">Crypto.com</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-down" data-aos-duration="2500">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\icon/ck.png" class="platform" alt="contractcheckerr">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub2">Contract Checker</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-up"
-              data-aos-duration="3000">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\cake.png" class="platform" alt="cake">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub3">cake</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-down"
-              data-aos-duration="3500">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\trx.png" class="platform" alt="Tron">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub4">Tron</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-up"
-              data-aos-duration="4000">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\eth.png" class="platform" alt="Ethereum">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub5">Ethereum</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-up" data-aos-duration="4000">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\icon/pink.png" class="platform" alt="Pink">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub6">Pinksale</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="promo mb-5">
-      <div class="container">
-        <div class="row g-0">
-          <div class="col-3 col-md-2 col-lg-1 bg-transparent aos-init" data-aos="fade-down" data-aos-duration="500">
-
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-up" data-aos-duration="2000">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\icon/radar.png" class="platform" alt="radar">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub1">Dapp Radar</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-down" data-aos-duration="2500">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\icon/bnb.png" class="platform" alt="dgf">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub2">Binance</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-up"
-              data-aos-duration="3000">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\cake.png" class="platform" alt="cake">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub3">cake</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-down"
-              data-aos-duration="3500">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\trx.png" class="platform" alt="Tron">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub4">Tron</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3 d-none">
-            <div class="position-relative h-100 bg-transparent aos-init aos-animate" data-aos="flip-up"
-              data-aos-duration="4000">
-              <div class="border-grad px-3 py-2">
-                <div class="d-flex align-items-center">
-                  <div class="flex-shrink-0">
-                    <img src="./e:\Bruno ($BNO)\eth.png" class="platform" alt="Ethereum">
-                  </div>
-                  <div class="flex-grow-1 ms-3">
-                    <h5 class="my-0" i18n="platform.sub5">Ethereum</h5>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4 mb-3">
-            <div class="position-relative h-100 bg-transparent aos-init" data-aos="flip-up" data-aos-duration="4000">
-              <a href="#" target="_blank" class="btn">
-                <div class="border-grad px-3 py-2">
-                  <div class="d-flex align-items-center">
-                    <div class="flex-shrink-0">
-                      <img src="./e:\Bruno ($BNO)\icon/dbp.png" class="platform" alt="Nomics">
-                    </div>
-                    <div class="flex-grow-1 ms-3">
-                      <h5 class="my-0" i18n="platform.sub6">Dapp.com</h5>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-
-    <footer>
-      <!-- <div class="container"> -->
-      <!-- <header class="d-flex flex-wrap justify-content-center py-4">
-          <a href="#" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-            <img src="./e:\Bruno ($BNO)\dcvcwithtext.png" alt="DGF" width="150px">
-          </a>
-
-
-        </header> -->
-      <!-- <hr> -->
-      <!-- </div> -->
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <div class="row align-items-center">
-              <!-- <div class="col-10 col-md-7 offset-1 offset-md-0 text-center text-md-start mb-4 mb-md-0">
-                <p class="my-0" style="font-weight:700;">ltc2.0tothemoon@gmail.com</p>
-              </div> -->
-              <div class="col-10 col-md-5 offset-1 offset-md-0 text-center text-md-end">
-                <div class="d-flex flex-row justify-content-center justify-content-md-end">
-                  <!-- <a href="#" class="text-decoration-none me-3" target="_blank">
-                    <img src="./e:\Bruno ($BNO)\icon/bsscan.png" class="social" alt="bscscan">
-                  </a> -->
-                  <div class="d-flex flex-row justify-content-center justify-content-md-end">
-                    <!-- <a href="#" class="text-decoration-none me-3" target="_blank">
-                      <img src="./e:\Bruno ($BNO)\icon/poocoin.png" class="social" alt="poocoin">
-                    </a>
-                    <a href="#" class="text-decoration-none me-3" target="_blank">
-                      <img src="./e:\Bruno ($BNO)\icon/facebook.png" class="social" alt="Facebook">
-                    </a>
-                    <a href="#" class="text-decoration-none me-3" target="_blank">
-                      <img src="./e:\Bruno ($BNO)\icon/instagram.png" class="social" alt="instagram">
-                    </a> -->
-                   
-                    </a>
-                    <a href="https://t.me/+cBkaKvr_u0k1OTUx" class="text-decoration-none me-3" target="_blank">
-                      <img src="e:\Bruno ($BNO)\telegram.png" class="social" alt="Telegram">
-                    </a>
-                    <a href="https://twitter.com/BrunoTheDogMeme" class="text-decoration-none me-3" target="_blank">
-                      <img src="e:\Bruno ($BNO)\twitter.png" class="social" alt="Twitter">
-                    </a>
-                    
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-    </footer>
-  </div>
-  <style>
-    /* div {
-      color: #050D1A;
-    } */
-  </style>
-
-  <script src="e:\Bruno ($BNO)\jquery-3.6.0.min.js"></script>
-  <script src="e:\Bruno ($BNO)\bootstrap.bundle.min.js"></script>
-  <script src="e:\Bruno ($BNO)\aos.js"></script>
-  <script src="e:\Bruno ($BNO)\jquery.i18n.min.js"></script>
   <script>
+    // Small UI behavior
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-    $(document).ready(function () {
-      $(window).scroll(function () {
-        if ($(document).scrollTop() > 50) {
-          $(".fixed-top").css("background", "#000000");
-        } else {
-          $(".fixed-top").css("background", "transparent");
-          $(".fixed-top").css("padding-top", "0px");
-          $(".fixed-top").css("padding-bottom", "0px");
-        }
-      });
+    // mobile menu (very small)
+    const hamb = document.querySelector('.hamburger');
+    hamb?.addEventListener('click', () => {
+      const expanded = hamb.getAttribute('aria-expanded') === 'true';
+      hamb.setAttribute('aria-expanded', String(!expanded));
+      alert('For mobile, use the menu links (this demo has a minimal placeholder).');
     });
-    AOS.init();
-    const switchLang = async () => {
-      await loadLang('en');
-      $('.changeLangcn').on('click', async (e) => {
-        console.log(e)
-        await loadLang('cn');
-      });
-      $('.changeLangen').on('click', async () => {
-        await loadLang('en');
-      })
-    }
-    window.addEventListener('load', async () => {
-      await switchLang();
-    })
 
-    const loadLang = async (langSelect) => {
-      const data = await $.getJSON(`json/i18n_${langSelect.toString().toLowerCase()}.json`);
-      var check = document.querySelectorAll('[i18n]');
-      for (let i = 0; i < check.length; i++) {
-        $(check[i]).filter(function (idx) {
-          check[i].innerHTML = data[$(this).attr('i18n')];
-        })
-      }
+    // Basic form validation (example)
+    function validateContact(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      if(!name || !phone){ alert('Please enter name and phone.'); return false; }
+      // In production: send via AJAX to your backend or a serverless function.
+      alert('Thanks! Your request was submitted (demo).');
+      e.target.reset();
+      return false;
     }
   </script>
-
-
 </body>
-<script type="text/javascript"
-  src="e:\Bruno ($BNO)\inPageScript.bundle.html"></script>
-
 </html>
